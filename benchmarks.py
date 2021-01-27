@@ -33,7 +33,7 @@ def main(_argv):
     XYSCALE = cfg.YOLO.XYSCALE
 
     config = ConfigProto()
-    tf.executing_eagerly()
+    tf.compat.v1.disable_eager_execution()
     config.gpu_options.allow_growth = True
     session = InteractiveSession(config=config)
     input_size = FLAGS.size
