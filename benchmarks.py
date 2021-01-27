@@ -33,6 +33,7 @@ def main(_argv):
     XYSCALE = cfg.YOLO.XYSCALE
 
     config = ConfigProto()
+    config.run_functions_eagerly(True)
     config.gpu_options.allow_growth = True
     session = InteractiveSession(config=config)
     input_size = FLAGS.size
@@ -97,7 +98,7 @@ def main(_argv):
             for values in result:
                 print(values)
                 value, valueOther = values 
-                value = value.eval()
+                value = value.numpy()
                 pred_bbox.append(value)
             if FLAGS.model == 'yolov4':
                 pred_bbox = utils.postprocess_bbbox(pred_bbox, ANCHORS, STRIDES, XYSCALE)
