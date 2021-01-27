@@ -37,8 +37,6 @@ def main(_argv):
     session = InteractiveSession(config=config)
     input_size = FLAGS.size
     physical_devices = tf.config.experimental.list_physical_devices('GPU')
-    if len(physical_devices) > 0:
-        tf.config.experimental.set_memory_growth(physical_devices[0], True)
     if FLAGS.framework == 'tf':
         input_layer = tf.keras.layers.Input([input_size, input_size, 3])
         if FLAGS.tiny:
