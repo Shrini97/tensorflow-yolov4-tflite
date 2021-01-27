@@ -60,7 +60,7 @@ def main(_argv):
                 feature_maps = YOLOv4(input_layer, NUM_CLASS)
                 bbox_tensors = []
                 for i, fm in enumerate(feature_maps):
-                    bbox_tensor = decode(fm, output_shape = tf.shape(fm)[1], NUM_CLASS = NUM_CLASS, i=i, ANCHORS = ANCHORS, STRIDES = STRINDES)
+                    bbox_tensor = decode(fm, output_shape = tf.shape(fm)[1], NUM_CLASS = NUM_CLASS, i=i, ANCHORS = ANCHORS, STRIDES = STRIDES)
                     bbox_tensors.append(bbox_tensor)
                 model = tf.keras.Model(input_layer, bbox_tensors)
                 utils.load_weights(model, FLAGS.weights)
