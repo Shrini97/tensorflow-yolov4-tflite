@@ -83,7 +83,7 @@ def main(_argv):
     original_image_size = original_image.shape[:2]
     image_data = utils.image_preprocess(np.copy(original_image), [FLAGS.size, FLAGS.size])
     image_data = image_data[np.newaxis, ...].astype(np.float32)
-    img_raw = tf.image.decode_image(
+    img_raw = tf.image.decode_jpeg(
         open(FLAGS.image, 'rb').read(), channels=3)
     img_raw = tf.expand_dims(img_raw, 0)
     img_raw = tf.image.resize(img_raw, (FLAGS.size, FLAGS.size))
