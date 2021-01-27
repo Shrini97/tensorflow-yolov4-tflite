@@ -34,6 +34,7 @@ def main(_argv):
 
     config = ConfigProto()
     tf.compat.v1.disable_eager_execution()
+    print(tf.executing_eagerly())
     config.gpu_options.allow_growth = True
     session = InteractiveSession(config=config)
     input_size = FLAGS.size
