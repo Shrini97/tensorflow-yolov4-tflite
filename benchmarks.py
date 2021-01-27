@@ -17,7 +17,7 @@ flags.DEFINE_string('model', 'yolov4', 'yolov3 or yolov4')
 flags.DEFINE_string('weights', './data/yolov4.weights', 'path to weights file')
 flags.DEFINE_string('image', './data/kite.jpg', 'path to input image')
 flags.DEFINE_integer('size', 416, 'resize images to')
-
+tf.enable_eager_execution()
 
 def main(_argv):
     if FLAGS.tiny:
