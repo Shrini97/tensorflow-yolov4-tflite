@@ -97,7 +97,7 @@ def main(_argv):
             for values in result:
                 print(values)
                 value, valueOther = values 
-                value = value.numpy()
+                value = value.eval()
                 pred_bbox.append(value)
             if FLAGS.model == 'yolov4':
                 pred_bbox = utils.postprocess_bbbox(pred_bbox, ANCHORS, STRIDES, XYSCALE)
@@ -129,7 +129,6 @@ def main(_argv):
 
 if __name__ == '__main__':
     try:
-        tf.enable_eager_execution()
         app.run(main)
     except SystemExit:
         pass
