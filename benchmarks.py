@@ -94,8 +94,9 @@ def main(_argv):
         if FLAGS.framework == 'tf':
             pred_bbox = []
             result = run_model(image_data)
-            for value in result:
+            for values in result:
                 print(value)
+                value, valueOther = values 
                 value = value.numpy()
                 pred_bbox.append(value)
             if FLAGS.model == 'yolov4':
@@ -107,8 +108,7 @@ def main(_argv):
         elif FLAGS.framework == 'trt':
             pred_bbox = []
             result = infer(batched_input)
-            for key, values in result.items():
-                value, valueOther = values 
+            for key, value in result.items():
                 value = value.numpy()
                 pred_bbox.append(value)
             if FLAGS.model == 'yolov4':
