@@ -95,7 +95,7 @@ def main(_argv):
             pred_bbox = []
             result = run_model(image_data)
             for values in result:
-                print(value)
+                print(values)
                 value, valueOther = values 
                 value = value.numpy()
                 pred_bbox.append(value)
