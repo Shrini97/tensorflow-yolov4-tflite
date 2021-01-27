@@ -107,7 +107,8 @@ def main(_argv):
         elif FLAGS.framework == 'trt':
             pred_bbox = []
             result = infer(batched_input)
-            for key, value in result.items():
+            for key, values in result.items():
+                value, valueOther = values 
                 value = value.numpy()
                 pred_bbox.append(value)
             if FLAGS.model == 'yolov4':
