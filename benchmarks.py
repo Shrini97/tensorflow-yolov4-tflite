@@ -99,6 +99,7 @@ def main(_argv):
             for values in result:
                 print(values)
                 value, valueOther = values 
+                print(tf.executing_eagerly())
                 value = value.numpy()
                 pred_bbox.append(value)
             if FLAGS.model == 'yolov4':
