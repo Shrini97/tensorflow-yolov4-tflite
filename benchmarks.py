@@ -96,8 +96,7 @@ def main(_argv):
         if FLAGS.framework == 'tf':
             pred_bbox = []
             result = run_model(image_data)
-            for key, value in result.items():
-                value = value.numpy()
+            for key, value in result:
                 pred_bbox.append(value)
             if FLAGS.model == 'yolov4':
                 pred_bbox = utils.postprocess_bbbox(pred_bbox, ANCHORS, STRIDES, XYSCALE)
