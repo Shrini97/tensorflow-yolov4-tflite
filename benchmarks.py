@@ -98,7 +98,7 @@ def main(_argv):
             result = run_model(image_data)
             for values in result:
                 print(values)
-                value, valueOther = values 
+                valueOther, value = values 
                 print(tf.executing_eagerly())
                 value = value.numpy()
                 pred_bbox.append(value)
