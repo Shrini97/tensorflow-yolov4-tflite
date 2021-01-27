@@ -95,6 +95,7 @@ def main(_argv):
             pred_bbox = []
             result = run_model(image_data)
             for value in result:
+                print(value)
                 value = value.numpy()
                 pred_bbox.append(value)
             if FLAGS.model == 'yolov4':
